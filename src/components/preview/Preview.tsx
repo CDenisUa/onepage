@@ -24,6 +24,8 @@ import styles from "./styles.module.css";
 const Preview = observer(() => {
   const store = useTaglineStore();
   const { styles: styleConfig } = store;
+  const previewItems = store.previewItems;
+  const hasItems = previewItems.length > 0;
   const gap = chipSizeTokens[styleConfig.size].gap;
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: DND_ACTIVATION_DISTANCE } })
@@ -49,24 +51,33 @@ const Preview = observer(() => {
         onDragEnd={handleDragEnd}
       >
         <SortableContext
-          items={store.previewItems.map((item) => item.id)}
+          items={previewItems.map((item) => item.id)}
           strategy={rectSortingStrategy}
         >
-          <div
-            className={`${styles.chips} ${styles[`align-${styleConfig.align}`]}`}
-            style={{ gap: `${gap}px` }}
-          >
-            {store.previewItems.map((item) => (
-              <SortableChip
-                key={item.id}
-                item={item}
-                disabled={item.id === "__draft__"}
-                variant={styleConfig.variant}
-                size={styleConfig.size}
-                radius={styleConfig.radius}
-              />
-            ))}
-          </div>
+          {hasItems ? (
+            <div
+              className={`${styles.chips} ${styles[`align-${styleConfig.align}`]}`}
+              style={{ gap: `${gap}px` }}
+            >
+              {previewItems.map((item) => (
+                <SortableChip
+                  key={item.id}
+                  item={item}
+                  disabled={item.id === "__draft__"}
+                  variant={styleConfig.variant}
+                  size={styleConfig.size}
+                  radius={styleConfig.radius}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className={styles.emptyState}>
+              <div className={styles.emptyTitle}>No tagline items yet</div>
+              <div className={styles.emptyHint}>
+                Right-click the canvas to add your first tag.
+              </div>
+            </div>
+          )}
         </SortableContext>
       </DndContext>
     </div>

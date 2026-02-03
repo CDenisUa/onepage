@@ -95,6 +95,28 @@
   padding: 8px 12px 6px;
 }
 
+.emptyList {
+  padding: 10px 8px;
+  border-radius: 8px;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.emptyListTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e6e6e6;
+}
+
+.emptyListHint {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
 .listItem {
   width: 100%;
   display: flex;

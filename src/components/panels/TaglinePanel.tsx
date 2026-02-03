@@ -21,6 +21,7 @@ import TaglineItemRow from "./TaglineItemRow";
 
 const TaglinePanel = observer(() => {
   const store = useTaglineStore();
+  const hasItems = store.items.length > 0;
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: DND_ACTIVATION_DISTANCE } })
   );
@@ -48,14 +49,23 @@ const TaglinePanel = observer(() => {
           strategy={verticalListSortingStrategy}
         >
           <div className={styles.list}>
-            {store.items.map((item) => (
-              <TaglineItemRow
-                key={item.id}
-                item={item}
-                onEdit={() => store.startEdit(item.id)}
-                onRemove={() => store.removeItem(item.id)}
-              />
-            ))}
+            {hasItems ? (
+              store.items.map((item) => (
+                <TaglineItemRow
+                  key={item.id}
+                  item={item}
+                  onEdit={() => store.startEdit(item.id)}
+                  onRemove={() => store.removeItem(item.id)}
+                />
+              ))
+            ) : (
+              <div className={styles.emptyList}>
+                <div className={styles.emptyListTitle}>No items yet</div>
+                <div className={styles.emptyListHint}>
+                  Click "Add item" to create the first tag.
+                </div>
+              </div>
+            )}
           </div>
         </SortableContext>
       </DndContext>
