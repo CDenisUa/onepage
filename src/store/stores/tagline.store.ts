@@ -44,7 +44,7 @@ class TaglineStore {
   draftLabel = "";
   draftLink = "";
   labelError: "required" | "duplicate" | null = null;
-  private draftPersistTimer: ReturnType<typeof setTimeout> | null = null;
+  draftPersistTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor() {
     makeAutoObservable(this, { draftPersistTimer: false }, { autoBind: true });
