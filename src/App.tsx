@@ -1,5 +1,5 @@
 // Styles
-import './App.css'
+import '@/App.css'
 
 function App() {
   return <div>One page test task</div>
