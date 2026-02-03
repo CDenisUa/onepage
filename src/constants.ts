@@ -23,5 +23,7 @@ export const NO_DELETE_COUNT = 0;
 export const MIN_LABEL_LENGTH = 1;
 export const PERSIST_DRAFT_DEBOUNCE_MS = 250;
 
+export const CHIP_MAX_WIDTH = 200;
+
 export const DEFAULT_TAGLINE_RADIUS: TaglineRadius = 12;
 export const RADIUS_OPTIONS: TaglineRadius[] = [0, 4, 8, 12, 100];

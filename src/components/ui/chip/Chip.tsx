@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, Ref } from "react";
 import type { TaglineRadius, TaglineSize, TaglineVariant } from "@/types";
+import { CHIP_MAX_WIDTH } from "@/constants";
 import { chipSizeTokens } from "@/tokens";
 // Styles
 import styles from "./styles.module.css";
@@ -39,6 +40,7 @@ const Chip = forwardRef<HTMLButtonElement | HTMLAnchorElement, ChipProps>(
       ["--chip-pad-x" as const]: `${tokens.padX}px`,
       ["--chip-pad-y" as const]: `${tokens.padY}px`,
       ["--chip-radius" as const]: `${radius}px`,
+      ["--chip-max-width" as const]: `${CHIP_MAX_WIDTH}px`,
     };
     const mergedStyle = { ...styleVars, ...(inlineStyle ?? {}) };
 
@@ -59,7 +61,7 @@ const Chip = forwardRef<HTMLButtonElement | HTMLAnchorElement, ChipProps>(
           href={href}
           {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
         >
-          {label}
+          <span className={styles.label}>{label}</span>
         </a>
       );
     }
@@ -72,7 +74,7 @@ const Chip = forwardRef<HTMLButtonElement | HTMLAnchorElement, ChipProps>(
         type="button"
         {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}
       >
-        {label}
+        <span className={styles.label}>{label}</span>
       </button>
     );
   }

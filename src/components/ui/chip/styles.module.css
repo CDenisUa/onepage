@@ -3,6 +3,9 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
+  max-width: var(--chip-max-width, 200px);
+  min-width: 0;
+  overflow: hidden;
   border-radius: var(--chip-radius, 12px);
   padding: var(--chip-pad-y, 8px) var(--chip-pad-x, 12px);
   font-size: var(--chip-font-size, 14px);
@@ -15,6 +18,12 @@
   transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
   color: var(--chip-fg, #f4f4f4);
   background: var(--chip-bg, #2d2d2d);
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .chip:hover {
