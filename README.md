@@ -59,6 +59,8 @@ npm run build
 - Name (label) field is required.
 - Drag handles/icons added to the item list in the context menu.
 - Drag & drop works in both the menu list and the Tagline preview.
+- Long tag labels are truncated with ellipsis in the menu list and preview chips.
+- Empty states are shown in the preview and menu when no tags exist.
 
 ### Requirements Coverage
 
