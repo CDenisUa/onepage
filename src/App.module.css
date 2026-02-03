@@ -1,0 +1,44 @@
+.app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  padding: 64px 72px;
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 100%);
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvas {
+  width: 100%;
+  max-width: 720px;
+  min-height: 420px;
+  background: var(--canvas-bg);
+  border: 1px solid var(--canvas-border);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 56px;
+}
+
+.sidebar {
+  display: contents;
+}
+
+@media (max-width: 960px) {
+  .app {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+  }
+
+  .sidebar {
+    display: contents;
+  }
+}

@@ -1,16 +1,21 @@
-export type Panel = "main" | "create" | "styles";
+export type Panel = "main" | "item" | "styles";
 
 export type TagItem = {
   id: string;
-  text: string;
+  label: string;
+  link: string;
 };
 
+export type TaglineVariant = "solid" | "soft" | "outline" | "ghost";
+export type TaglineSize = "xl" | "l" | "m" | "s" | "xs";
+export type TaglineRadius = 0 | 4 | 8 | 12 | 100;
+export type TaglineAlign = "left" | "center" | "right";
+
 export type TaglineStyles = {
-  chipRadius: number;
-  chipPaddingX: number;
-  chipPaddingY: number;
-  chipGap: number;
-  chipFontSize: number;
+  variant: TaglineVariant;
+  size: TaglineSize;
+  radius: TaglineRadius;
+  align: TaglineAlign;
 };
 
 export type TaglineStateSnapshot = {

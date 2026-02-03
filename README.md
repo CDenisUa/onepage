@@ -34,6 +34,42 @@ This project implements an interactive editor for the **Tagline** element based 
 - Vite (build tool)
 - CSS Modules (styling)
 
+## Important
+
+### Setup & Run
+
+1. Install dependencies:
+```bash
+npm install
+```
+2. Start dev server:
+```bash
+npm run dev
+```
+3. Production build:
+```bash
+npm run build
+```
+
+### UX Improvements Applied
+
+- Menu behavior updated: opens as a context menu (right click).
+- Validation on item creation.
+- Duplicate names are not allowed.
+- Name (label) field is required.
+- Drag handles/icons added to the item list in the context menu.
+- Drag & drop works in both the menu list and the Tagline preview.
+
+### Requirements Coverage
+
+- Preview area with heading and wrap behavior
+- Main panel with list, add item, and styles navigation
+- Create/Edit item panels with label and link
+- Styles: variants, size, radius, alignment
+- Instant preview updates
+- Simulated persistence on changes
+- Drag & drop sorting (optional requirement)
+
 ## Notes
 
 If any Figma details are ambiguous, reasonable defaults are chosen and can be adjusted easily.
