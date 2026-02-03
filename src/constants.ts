@@ -21,6 +21,7 @@ export const MIN_INDEX = 0;
 export const REMOVE_ONE_ITEM = 1;
 export const NO_DELETE_COUNT = 0;
 export const MIN_LABEL_LENGTH = 1;
+export const PERSIST_DRAFT_DEBOUNCE_MS = 250;
 
 export const DEFAULT_TAGLINE_RADIUS: TaglineRadius = 12;
 export const RADIUS_OPTIONS: TaglineRadius[] = [0, 4, 8, 12, 100];

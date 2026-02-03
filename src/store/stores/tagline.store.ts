@@ -14,6 +14,7 @@ import {
   MIN_INDEX,
   MIN_LABEL_LENGTH,
   NO_DELETE_COUNT,
+  PERSIST_DRAFT_DEBOUNCE_MS,
   REMOVE_ONE_ITEM,
 } from "@/constants";
 
@@ -43,9 +44,10 @@ class TaglineStore {
   draftLabel = "";
   draftLink = "";
   labelError: "required" | "duplicate" | null = null;
+  private draftPersistTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor() {
-    makeAutoObservable(this, {}, { autoBind: true });
+    makeAutoObservable(this, { draftPersistTimer: false }, { autoBind: true });
   }
 
   get canSaveDraft() {
@@ -88,10 +90,12 @@ class TaglineStore {
     if (this.labelError) {
       this.labelError = null;
     }
+    this.scheduleDraftPersist();
   }
 
   setDraftLink(value: string) {
     this.draftLink = value;
+    this.scheduleDraftPersist();
   }
 
   startCreate() {
@@ -99,6 +103,7 @@ class TaglineStore {
     this.draftLabel = "";
     this.draftLink = "";
     this.labelError = null;
+    this.clearDraftPersistTimer();
     this.openPanel("item");
   }
 
@@ -109,6 +114,7 @@ class TaglineStore {
     this.draftLabel = item.label;
     this.draftLink = item.link;
     this.labelError = null;
+    this.clearDraftPersistTimer();
     this.openPanel("item");
   }
 
@@ -117,6 +123,7 @@ class TaglineStore {
     this.draftLabel = "";
     this.draftLink = "";
     this.labelError = null;
+    this.clearDraftPersistTimer();
     this.activePanel = "main";
   }
 
@@ -172,6 +179,7 @@ class TaglineStore {
       });
     }
 
+    this.clearDraftPersistTimer();
     this.persist();
     this.activePanel = "main";
     this.editingItemId = null;
@@ -206,11 +214,26 @@ class TaglineStore {
     this.persist();
   }
 
-  persist() {
+  persist(items: TagItem[] = this.items, styles: TaglineStyles = this.styles) {
     console.log("POST http://api/tagline", {
-      items: this.items,
-      styles: this.styles,
+      items,
+      styles,
     });
+  }
+
+  private clearDraftPersistTimer() {
+    if (!this.draftPersistTimer) return;
+    clearTimeout(this.draftPersistTimer);
+    this.draftPersistTimer = null;
+  }
+
+  private scheduleDraftPersist() {
+    if (this.activePanel !== "item") return;
+    this.clearDraftPersistTimer();
+    this.draftPersistTimer = setTimeout(() => {
+      this.persist(this.previewItems, this.styles);
+      this.draftPersistTimer = null;
+    }, PERSIST_DRAFT_DEBOUNCE_MS);
   }
 
   get previewItems() {

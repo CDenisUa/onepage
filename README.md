@@ -70,6 +70,17 @@ npm run build
 - Simulated persistence on changes
 - Drag & drop sorting (optional requirement)
 
+### Simulated API Calls (UX Triggers)
+
+The app simulates saving changes by logging `POST http://api/tagline` to the console. It is triggered on:
+
+- Typing in the Item panel (Label/Link) with a short debounce.
+- Pressing Enter or closing the Item panel (when the draft is valid).
+- Deleting an item.
+- Reordering items via drag & drop (menu list or preview).
+- Changing any Style settings (variant, size, radius, alignment).
+- Resetting styles.
+
 ## Notes
 
 If any Figma details are ambiguous, reasonable defaults are chosen and can be adjusted easily.
