@@ -24,6 +24,8 @@
   align-items: center;
   justify-content: center;
   padding: 0 56px 64px;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
 }
 
 .sidebar {
@@ -33,29 +35,14 @@
 @media (max-width: 960px) {
   .app {
     grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 24px 16px;
-    width: 100%;
+    padding: 40px 24px;
   }
 
   .canvas {
-    min-height: 340px;
-    padding: 24px 16px 24px;
-    max-width: 100%;
+    padding: 64px 24px 40px;
   }
 
   .sidebar {
     display: contents;
-  }
-}
-
-@media (max-width: 640px) {
-  .app {
-    padding: 16px 12px 20px;
-  }
-
-  .canvas {
-    min-height: 300px;
-    padding: 16px 12px 20px;
   }
 }

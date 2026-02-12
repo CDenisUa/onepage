@@ -22,6 +22,8 @@ export const REMOVE_ONE_ITEM = 1;
 export const NO_DELETE_COUNT = 0;
 export const MIN_LABEL_LENGTH = 1;
 export const PERSIST_DRAFT_DEBOUNCE_MS = 250;
+export const MOBILE_MENU_LONG_PRESS_MS = 420;
+export const MOBILE_MENU_TOUCH_MOVE_TOLERANCE_PX = 12;
 
 export const CHIP_MAX_WIDTH = 200;
 
