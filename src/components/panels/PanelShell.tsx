@@ -28,7 +28,12 @@ const PanelShell: FC<PanelShellProps> = ({
               onClick={onBack}
               aria-label="Back"
             >
-              ‹
+              <img
+                className={styles.iconImage}
+                src="/svg/back.svg"
+                alt=""
+                aria-hidden="true"
+              />
             </button>
           )}
         </div>
@@ -41,7 +46,12 @@ const PanelShell: FC<PanelShellProps> = ({
               onClick={onClose}
               aria-label="Close"
             >
-              ×
+              <img
+                className={styles.iconImage}
+                src="/svg/close.svg"
+                alt=""
+                aria-hidden="true"
+              />
             </button>
           )}
         </div>

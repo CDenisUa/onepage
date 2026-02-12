@@ -51,7 +51,12 @@ const TaglineItemRow = ({ item, onEdit, onRemove }: TaglineItemRowProps) => {
         onClick={onRemove}
         aria-label="Remove item"
       >
-        ×
+        <img
+          className={styles.itemRemoveIcon}
+          src="/svg/close.svg"
+          alt=""
+          aria-hidden="true"
+        />
       </button>
     </div>
   );

@@ -2,15 +2,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
+  gap: 61px;
   text-align: center;
   color: var(--text-primary);
 }
 
 .title {
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  position: absolute;
+  top: 189.4px;
+  left: 50%;
+  transform: translateX(-50%);;
+  font-family: "Onest", "Segoe UI", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 37.95px;
+  line-height: 140%;
+  letter-spacing: -0.0044em;
+  text-align: center;
   color: var(--text-primary);
 }
 

@@ -1,8 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap");
 
 :root {
   color-scheme: dark;
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: "Onest", "Segoe UI", sans-serif;
+  --size-md: 14px;
+  --size-sm: 12px;
   --page-bg: #0f0f10;
   --page-glow: rgba(67, 113, 255, 0.2);
   --text-primary: #f4f4f4;

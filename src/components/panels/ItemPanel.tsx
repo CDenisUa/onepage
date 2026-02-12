@@ -22,36 +22,41 @@ const ItemPanel = observer(() => {
       onBack={() => store.finishDraft()}
       onClose={() => store.finishDraftAndClose()}
     >
-      <div className={styles.section}>
-        <div className={styles.field}>
-          <label className={styles.label} htmlFor="tagline-label">
+      <div className={`${styles.section} ${styles.itemSection}`}>
+        <div
+          className={[
+            styles.itemField,
+            store.labelError ? styles.itemFieldError : "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        >
+          <label className={styles.itemFieldLabel} htmlFor="tagline-label">
             Label
           </label>
           <input
             id="tagline-label"
-            className={`${styles.input} ${
-              store.labelError ? styles.inputError : ""
-            }`}
+            className={styles.itemInput}
             value={store.draftLabel}
             onChange={(event) => store.setDraftLabel(event.target.value)}
             placeholder="Marketing"
             onKeyDown={handleKeyDown}
           />
-          {store.labelError ? (
-            <span className={styles.errorText}>
-              {store.labelError === "required"
-                ? "Required field"
-                : "Item with this name already exists"}
-            </span>
-          ) : null}
         </div>
-        <div className={styles.field}>
-          <label className={styles.label} htmlFor="tagline-link">
+        {store.labelError ? (
+          <span className={styles.itemErrorText}>
+            {store.labelError === "required"
+              ? "Required field"
+              : "Item with this name already exists"}
+          </span>
+        ) : null}
+        <div className={styles.itemField}>
+          <label className={styles.itemFieldLabel} htmlFor="tagline-link">
             Link
           </label>
           <input
             id="tagline-link"
-            className={styles.input}
+            className={styles.itemInput}
             value={store.draftLink}
             onChange={(event) => store.setDraftLink(event.target.value)}
             placeholder="https://onepage.io"

@@ -1,5 +1,5 @@
 .panel {
-  width: 240px;
+  width: 282px;
   background: #2a2a2b;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 12px;
@@ -22,11 +22,13 @@
 }
 
 .panelHeader {
+  width: 100%;
+  min-height: 56px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   margin-bottom: 0;
-  padding: 10px 12px;
+  padding: 10px 6px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -41,32 +43,43 @@
 }
 
 .headerTitle {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  justify-self: center;
-  color: #e6e6e6;
+  font-family: "Onest", "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 15.94px;
+  line-height: 23.91px;
+  letter-spacing: 0;
+  color: #ffffff;
 }
 
 .iconButton {
-  width: 22px;
-  height: 22px;
+  width: 32px;
+  height: 32px;
   border-radius: 6px;
   border: none;
   background: transparent;
-  color: #9f9f9f;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 14px;
   line-height: 1;
   transition: background 120ms ease;
 }
 
 .iconButton:hover {
   background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
+}
+
+.iconImage {
+  width: 16px;
+  height: 16px;
+  display: block;
+  opacity: 0.7;
+  transition: opacity 120ms ease;
+}
+
+.iconButton:hover .iconImage {
+  opacity: 1;
 }
 
 .section {
@@ -82,10 +95,13 @@
 }
 
 .sectionTitle {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--text-muted);
+  font-family: "Onest", "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 13.95px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: #ffffff;
 }
 
 .list {
@@ -121,13 +137,14 @@
   width: 100%;
   display: flex;
   align-items: center;
+  height: 40px;
   gap: 8px;
   padding: 6px 4px;
   border-radius: 8px;
   background: transparent;
   border: none;
   color: #e6e6e6;
-  font-size: 12px;
+  font-size: 14px;
   text-align: left;
   transition: background 120ms ease;
   position: relative;
@@ -159,7 +176,7 @@
   border: none;
   background: transparent;
   color: inherit;
-  font-size: 12px;
+  font-size: 14px;
   cursor: pointer;
   text-align: left;
   flex: 1;
@@ -172,15 +189,27 @@
 .itemRemove {
   opacity: 0;
   pointer-events: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   background: transparent;
-  color: #b5b5b5;
-  font-size: 14px;
   line-height: 1;
-  padding: 0 2px;
+  padding: 0;
   cursor: pointer;
   margin-left: auto;
-  transition: opacity 120ms ease, color 120ms ease;
+  transition: opacity 120ms ease, background 120ms ease;
+}
+
+.itemRemoveIcon {
+  width: 16px;
+  height: 16px;
+  display: block;
+  opacity: 0.7;
+  transition: opacity 120ms ease;
 }
 
 .listItem:hover .itemRemove {
@@ -193,7 +222,11 @@
 }
 
 .itemRemove:hover {
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.itemRemove:hover .itemRemoveIcon {
+  opacity: 1;
 }
 
 .listItemDragging {
@@ -207,6 +240,7 @@
 
 .menuRow {
   width: 100%;
+  min-height: 40px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -229,6 +263,11 @@
   color: #a8a8a8;
 }
 
+.menuStylesRow {
+  height: 48px;
+  min-height: 48px;
+}
+
 .menuIcon {
   width: 14px;
   height: 14px;
@@ -247,15 +286,83 @@
   opacity: 0.8;
 }
 
+.menuText {
+  font-size: 14px;
+}
+
 .menuArrow {
-  margin-left: auto;
-  color: #7a7a7a;
+  width: 6px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  right: 16px;
 }
 
 .menuDivider {
   height: 1px;
   background: rgba(255, 255, 255, 0.06);
   margin: 0;
+}
+
+.itemSection {
+  gap: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.itemField {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 12px 9px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.itemFieldError {
+  border-color: #d96a6a;
+}
+
+.itemFieldLabel {
+  font-family: "Onest", "Segoe UI", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: var(--size-sm, 12px);
+  line-height: 16px;
+  letter-spacing: 0;
+  text-align: justify;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.itemInput {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-family: "Onest", "Segoe UI", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: var(--size-md, 14px);
+  line-height: 16px;
+  letter-spacing: 0;
+  text-align: justify;
+  color: #ffffff;
+}
+
+.itemInput:focus {
+  outline: none;
+}
+
+.itemInput::placeholder {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.itemErrorText {
+  padding-left: 4px;
+  font-size: 10px;
+  color: #d96a6a;
 }
 
 .field {
@@ -319,43 +426,68 @@
 }
 
 .styleButton {
-  height: 36px;
+  width: 57.02248764038086px;
+  height: 37px;
+  gap: 9.96px;
+  opacity: 1;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Onest", "Segoe UI", sans-serif;
+  font-weight: 500;
+  font-style: normal;
   font-size: 14px;
+  line-height: 140%;
+  letter-spacing: -0.002em;
+  text-align: center;
   border-radius: 9px;
-  background: #3a3a3a;
+  background: #ffffff1a;
   border-color: transparent;
-  color: #f1f1f1;
+  color: #ffffff;
 }
 
 .variantSolid {
-  background: #3a3a3a;
+  background: #ffffff1a;
   color: #ffffff;
 }
 
 .variantSoft {
-  background: #2b4f6a;
-  color: #7fb7ff;
+  background: #157bda33;
+  color: #56adff;
 }
 
 .variantOutline {
-  background: #1f79d6;
-  border: 1px solid #1f79d6;
+  background: #157bdaed;
+  border-color: transparent;
   color: #ffffff;
 }
 
 .variantGhost {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #f0f0f0;
+  background: #ffffff40;
+  border-color: transparent;
+  color: #ffffff;
 }
 
 
 .sizeButton,
 .radiusButton {
-  height: 32px;
+  width: 44.02398681640625px;
+  height: 31.880064010620117px;
+  gap: 9.96px;
+  opacity: 1;
+  border-radius: 5.98px;
+  padding: 0;
   border: none;
   background: transparent;
   color: #e6e6e6;
+  font-family: "Onest", "Segoe UI", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: -0.002em;
+  text-align: center;
 }
 
 .sizeButtonActive,
@@ -391,4 +523,20 @@
 .panelWrapper {
   position: fixed;
   z-index: 20;
+  height: 40px;
+  max-height: 40px;
+}
+
+.menuFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & span {
+    margin-left: 8px;
+  }
+
+  & img {
+    margin-left: 14px;
+  }
 }

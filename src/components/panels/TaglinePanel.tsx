@@ -77,18 +77,20 @@ const TaglinePanel = observer(() => {
           onClick={() => store.startCreate()}
         >
           <span className={styles.menuIconText}>＋</span>
-          Add item
+          <span className={styles.menuText}>Add item</span>
         </button>
       </div>
       <div className={styles.menuDivider} />
       <button
-        className={styles.menuRow}
+        className={`${styles.menuRow} ${styles.menuStylesRow}`}
         type="button"
         onClick={() => store.openPanel("styles")}
       >
-        <img className={styles.menuIcon} src="/svg/style.svg" alt="" />
-        Styles
-        <span className={styles.menuArrow}>›</span>
+        <div className={styles.menuFooter}>
+          <img className={styles.menuIcon} src="/svg/style.svg" alt="" />
+          <span className={styles.menuText}>Styles</span>
+        </div>
+        <img className={styles.menuArrow} src="/svg/forward.svg" alt="" />
       </button>
     </PanelShell>
   );
