@@ -1,5 +1,5 @@
 .panel {
-  width: 282px;
+  width: min(282px, calc(100vw - 24px));
   background: #2a2a2b;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 12px;
@@ -538,5 +538,118 @@
 
   & img {
     margin-left: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .panel {
+    width: min(282px, calc(100vw - 16px));
+  }
+
+  .panelHeader {
+    min-height: 48px;
+    padding: 8px 6px;
+  }
+
+  .headerTitle {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .iconButton {
+    width: 28px;
+    height: 28px;
+  }
+
+  .iconImage {
+    width: 14px;
+    height: 14px;
+  }
+
+  .section {
+    padding: 8px 10px;
+  }
+
+  .sectionTitle {
+    font-size: 12px;
+  }
+
+  .list {
+    padding: 6px 10px 4px;
+  }
+
+  .listItem {
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .itemButton {
+    font-size: 13px;
+  }
+
+  .itemRemove {
+    width: 28px;
+    height: 28px;
+  }
+
+  .itemRemoveIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .menuSection {
+    padding: 3px 10px 6px;
+  }
+
+  .menuRow {
+    min-height: 36px;
+    padding: 6px 4px;
+  }
+
+  .menuStylesRow {
+    min-height: 44px;
+    height: 44px;
+  }
+
+  .menuText {
+    font-size: 13px;
+  }
+
+  .optionRow,
+  .optionGrid,
+  .alignRow {
+    gap: 4px;
+  }
+
+  .styleButton {
+    width: 52px;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  .sizeButton,
+  .radiusButton {
+    width: 40px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  .alignButton {
+    height: 30px;
+  }
+
+  .alignIcon {
+    width: 13px;
+    height: 13px;
+  }
+
+  .itemFieldLabel,
+  .itemInput {
+    text-align: left;
+  }
+
+  .panelWrapper {
+    height: auto;
+    max-height: none;
   }
 }

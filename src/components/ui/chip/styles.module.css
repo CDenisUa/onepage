@@ -54,3 +54,18 @@
   --chip-fg: #f0f0f0;
   border-color: rgba(255, 255, 255, 0.35);
 }
+
+@media (max-width: 960px) {
+  .chip {
+    font-size: 14px;
+    line-height: 130%;
+  }
+}
+
+@media (max-width: 640px) {
+  .chip {
+    font-size: 13px;
+    line-height: 130%;
+    max-width: 180px;
+  }
+}

@@ -11,7 +11,7 @@
   position: absolute;
   top: 189.4px;
   left: 50%;
-  transform: translateX(-50%);;
+  transform: translateX(-50%);
   font-family: "Onest", "Segoe UI", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -76,4 +76,44 @@
 .align-right {
   justify-content: flex-end;
   text-align: right;
+}
+
+@media (max-width: 960px) {
+  .preview {
+    width: 100%;
+    gap: 24px;
+  }
+
+  .title {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0;
+    font-size: 28px;
+    line-height: 130%;
+    letter-spacing: -0.003em;
+  }
+
+  .chips {
+    width: 100%;
+    max-width: 360px;
+    row-gap: 8px;
+  }
+
+  .emptyState {
+    width: min(420px, 100%);
+    padding: 14px 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 22px;
+    line-height: 130%;
+  }
+
+  .chips {
+    max-width: 100%;
+  }
 }

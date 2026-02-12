@@ -7,6 +7,7 @@
   position: relative;
   z-index: 1;
   width: min(1100px, 100%);
+  margin: 0 auto;
 }
 
 .stage {
@@ -32,14 +33,29 @@
 @media (max-width: 960px) {
   .app {
     grid-template-columns: 1fr;
-    padding: 40px 24px;
+    gap: 24px;
+    padding: 24px 16px;
+    width: 100%;
   }
 
   .canvas {
-    padding: 64px 24px 40px;
+    min-height: 340px;
+    padding: 24px 16px 24px;
+    max-width: 100%;
   }
 
   .sidebar {
     display: contents;
+  }
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding: 16px 12px 20px;
+  }
+
+  .canvas {
+    min-height: 300px;
+    padding: 16px 12px 20px;
   }
 }
